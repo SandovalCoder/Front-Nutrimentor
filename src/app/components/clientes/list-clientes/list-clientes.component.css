@@ -1,0 +1,65 @@
+
+.clients {
+    text-align: center;
+    background: #3CA55C;
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);
+    background: linear-gradient(to right, #B5AC49, #3CA55C);
+    padding: 20px 20px; 
+    margin: 0; 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+
+/* Título */
+.clients h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+/* Filtro */
+mat-form-field {
+    width: 40%;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+mat-form-field input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 0; 
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+mat-form-field input:focus {
+    outline: none;
+    border: 1px solid #3CA55C;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Botón de agregar */
+button[mat-raised-button] {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #269506;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button[mat-raised-button]:hover {
+    background-color: green;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}

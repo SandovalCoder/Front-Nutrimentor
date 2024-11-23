@@ -1,0 +1,59 @@
+<app-cabecera></app-cabecera>
+
+<div class="perfil-container">
+  <div class="perfil-card">
+    <div class="icono-perfil">
+      <mat-icon class="perfil-icon">person</mat-icon>
+    </div>
+
+    <h2>Editar Perfil</h2>
+
+    <form [formGroup]="perfilForm" (ngSubmit)="guardarPerfil()">
+      <!-- Nombre -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" placeholder="Ingrese su nombre" required />
+        <mat-error *ngIf="perfilForm.get('name')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="perfilForm.get('name')?.hasError('minlength')">
+          El nombre debe tener al menos 2 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Ingrese su correo electrónico" type="email" required />
+        <mat-error *ngIf="perfilForm.get('email')?.hasError('required')">
+          El correo electrónico es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="perfilForm.get('email')?.hasError('email')">
+          Ingrese un correo válido.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Dirección -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="address" placeholder="Ingrese su dirección" required />
+        <mat-error *ngIf="perfilForm.get('address')?.hasError('required')">
+          La dirección es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="perfilForm.get('address')?.hasError('minlength')">
+          La dirección debe tener al menos 5 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Botones -->
+      <div class="button-group">
+        <button mat-stroked-button routerLink="/home" class="button-cancel">
+          Cancelar
+        </button>
+        <button mat-raised-button color="primary" type="submit" class="button-save">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
