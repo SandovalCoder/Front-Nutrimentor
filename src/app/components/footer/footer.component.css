@@ -1,0 +1,118 @@
+.footer {
+  background: #52c234; /* Fallback para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #061700, #52c234); /* Gradiente WebKit */
+  background: linear-gradient(to right, #061700, #52c234); /* Gradiente principal */
+  color: #ffffff; /* Texto blanco */
+  padding: 50px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo-img {
+  width: 90px; /* Tamaño más grande */
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #ffffff; /* Borde blanco */
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el logo */
+}
+
+.footer-logo span {
+  font-size: 2rem; /* Texto más grande */
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombras para mejor visibilidad */
+}
+
+.footer-links {
+  flex: 1 1 200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #ffff00; /* Amarillo brillante para enlaces */
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin: 0 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombras para destacar los enlaces */
+}
+
+.footer-links a:hover {
+  color: #ffffff; /* Blanco al pasar el cursor */
+  text-decoration: underline;
+}
+
+.footer-contact {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  color: #ffffff; /* Blanco para textos */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombras */
+}
+
+.footer-contact strong {
+  color: #ffff00; /* Amarillo brillante para títulos */
+  font-size: 1.2rem;
+}
+
+.footer-social {
+  flex: 1 1 200px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.footer-social p {
+  font-size: 1.2rem;
+  color: #ffff00; /* Amarillo brillante */
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombras */
+}
+
+.footer-social a {
+  color: #ffffff; /* Blanco para enlaces sociales */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffff00; /* Amarillo brillante al pasar el cursor */
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #ffffff; /* Línea blanca */
+  color: #ffffff; /* Blanco para texto */
+  font-size: 0.9rem;
+}

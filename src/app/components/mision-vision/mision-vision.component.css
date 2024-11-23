@@ -1,0 +1,50 @@
+.mision-vision-full-width {
+    background: #3CA55C; /* Fallback */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C); /* Gradiente para navegadores antiguos */
+    background: linear-gradient(to right, #B5AC49, #3CA55C); /* Gradiente principal */
+    padding: 40px 0; /* Espaciado general */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.mision-vision-section {
+    max-width: 1200px; /* Centrado del contenido */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaciado entre imagen y texto */
+    flex-wrap: wrap; /* Ajuste en pantallas pequeñas */
+}
+
+.mision-vision-image img {
+    width: 100%; /* Imagen ocupa todo el espacio */
+    max-width: 500px; /* Ancho máximo de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.mision-vision-content {
+    flex: 1; /* El texto ocupa el espacio disponible */
+    text-align: left; /* Texto alineado a la izquierda */
+    color: #fff; /* Color blanco */
+}
+
+.mision-vision-content h2 {
+    font-size: 2rem; /* Tamaño del título */
+    font-weight: bold;
+    color: black; /* Color blanco */
+    margin-bottom: 20px;
+    text-align: center; /* Título centrado */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra para destacar el texto */
+}
+
+.mision-vision-content p {
+    font-size: 1rem; /* Tamaño del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin: 0;
+    text-align: center;
+    color: #fff; /* Color blanco */
+}
+
+.mision-vision-content p strong {
+    color: black; /* Color dorado para resaltar misión y visión */
+}

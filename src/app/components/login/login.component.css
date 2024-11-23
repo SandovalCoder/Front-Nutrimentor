@@ -1,0 +1,204 @@
+/* Contenedor principal */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px; /* Agrega padding para pantallas pequeñas */
+  overflow: hidden;
+}
+
+/* Imagen de fondo */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el fondo */
+  filter: brightness(0.6); 
+  z-index: -1; /* Envía la imagen al fondo */
+}
+
+/* Caja de inicio de sesión */
+.login-box {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las secciones se apilen en pantallas pequeñas */
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  z-index: 1; /* Asegura que la caja esté encima del fondo */
+}
+
+/* Sección izquierda */
+.login-left {
+  flex: 1;
+  background-color: rgba(12, 135, 43, 0.9); /* Fondo con transparencia */
+  padding: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.illustration {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sección derecha */
+.login-right {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Tarjeta de inicio de sesión */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  text-align: center; /* Centra horizontalmente el texto */
+  padding: 20px; /* Espaciado interno */
+}
+
+/* Estilo del título y subtítulo */
+.card-title {
+  color: #269506;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Espaciado entre título y subtítulo */
+}
+
+.card-subtitle {
+  color: #0c872b;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+/* Campos de entrada */
+.input-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-icon {
+  color: #269506;
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+  background-color: #269506;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.login-button:hover {
+  background-color: #0c872b;
+}
+
+/* Contenedor de alertas */
+.alert {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+}
+
+/* Estilo de alerta de éxito */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Estilo de alerta de error */
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+  .login-left {
+    padding: 20px;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+  }
+
+  .login-box {
+    flex-direction: column; /* Apila las secciones */
+  }
+
+  .login-right {
+    padding: 20px;
+  }
+
+  .login-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 1.2rem;
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+  }
+
+  .illustration {
+    display: none; /* Oculta la imagen en pantallas muy pequeñas */
+  }
+
+  .login-card {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.9rem;
+  }
+}
