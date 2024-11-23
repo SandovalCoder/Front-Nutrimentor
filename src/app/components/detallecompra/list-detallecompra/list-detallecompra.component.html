@@ -1,0 +1,56 @@
+<app-cabecera></app-cabecera>
+<div class="detalle">
+    <h2>Lista de Detalles de compras</h2>
+  
+  
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" routerLink="/detalleCompraadmin-add">Agregar nuevo Detalle de Compra </button>
+  
+  <table mat-table [dataSource]="dsDetallesCompra" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Producto </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="buyDate">
+      <th mat-header-cell *matHeaderCellDef> Fecha de compra </th>
+      <td mat-cell *matCellDef="let element"> {{element.buyDate | date}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="total">
+     <th mat-header-cell *matHeaderCellDef> Total </th>
+     <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="onDelete(element.id)" style="cursor: pointer;" title="Eliminar">
+          <mat-icon color="warn">delete</mat-icon>
+        </a>
+        <a [routerLink]="['/detalleCompraadmin-edit/', element.id]" style="cursor: pointer;" title="Editar">
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

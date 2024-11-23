@@ -1,0 +1,47 @@
+<app-cabecera></app-cabecera>
+<div class="especialidad">
+    <h2>Lista de Especialidades</h2>
+
+<mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro" #input>
+</mat-form-field>
+
+<button mat-raised-button color="primary" routerLink="/especialidad-add">Agregar nueva Especialidad</button>
+
+<table mat-table [dataSource]="dsEspecialidades" class="mat-elevation-z8">
+ 
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> # Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="specializationName">
+        <th mat-header-cell *matHeaderCellDef> Especialización </th>
+        <td mat-cell *matCellDef="let element"> {{element.specializationName}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="profileDescription">
+        <th mat-header-cell *matHeaderCellDef> Descripción </th>
+        <td mat-cell *matCellDef="let element"> {{element.profileDescription}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let element">
+            <a (click)="onDelete(element.id)" style="cursor: pointer;" title="Eliminar">
+                <mat-icon color="warn">delete</mat-icon>
+            </a>
+            <a [routerLink]="['/especialidad-edit/', element.id]" style="cursor: pointer;" title="Editar">
+                <mat-icon color="primary">edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5,10,25,50]" showFirstLastButtons=></mat-paginator>
+</div>
