@@ -1,0 +1,32 @@
+<app-cabecera></app-cabecera>
+
+<div class="categoria">
+  <h2 *ngIf="categoriaId == 0">Agregar una Categoría</h2>
+  <h2 *ngIf="categoriaId > 0">Editar una Categoría</h2>
+
+<br>
+<form [formGroup]="addEditCategoria">
+  <mat-form-field>
+    <mat-label>Id</mat-label>
+    <input matInput formControlName="id" readonly="true">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <input matInput formControlName="type" placeholder="Ingrese un tipo">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <mat-label>Descripción</mat-label>
+    <input matInput formControlName="description" placeholder="Ingrese una descripción">
+  </mat-form-field>
+  <br><br>
+
+  <div class="button-group">
+    <button mat-stroked-button routerLink="/categorias">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="grabarCategoria()">Grabar</button>
+  </div>
+</form>
+</div>
