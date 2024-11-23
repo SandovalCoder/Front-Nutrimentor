@@ -1,0 +1,60 @@
+.nosotros-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite ajustar el diseño en pantallas pequeñas */
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+  gap: 20px; /* Espaciado entre elementos */
+}
+
+.nosotros-content {
+  flex: 1;
+  padding-right: 20px; /* Espaciado a la derecha */
+  text-align: center; /* Texto alineado a la izquierda */
+}
+
+.nosotros-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4CAF50; /* Color verde */
+  margin-bottom: 20px;
+}
+
+.nosotros-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.nosotros-image {
+  flex: 1;
+  text-align: center; /* Centra la imagen horizontalmente */
+}
+
+.nosotros-image img {
+  width: 100%;
+  max-width: 500px; /* Limita el tamaño de la imagen */
+  border-radius: 8px; /* Bordes redondeados */
+  object-fit: cover; /* Mantiene las proporciones de la imagen */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .nosotros-section {
+      flex-direction: column; /* Cambia a disposición vertical */
+  }
+
+  .nosotros-content {
+      text-align: center; /* Centraliza el texto */
+      padding-right: 0; /* Elimina el padding en pantallas pequeñas */
+  }
+
+  .nosotros-image img {
+      max-width: 100%; /* La imagen ocupa todo el ancho disponible */
+      margin-top: 20px; /* Espaciado superior en pantallas pequeñas */
+  }
+}

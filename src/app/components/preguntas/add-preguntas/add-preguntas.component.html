@@ -1,0 +1,70 @@
+<app-cabecera></app-cabecera>
+<div class="preguntas">
+    <h2 *ngIf="preguntasId == 0">Agregar Pregunta</h2>
+    <h2 *ngIf="preguntasId > 0">Editar Pregunta</h2>    
+
+<br>
+<form [formGroup]="addEditPreguntas">
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id" readonly="true">
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Consulta</mat-label>
+        <input matInput formControlName="query" type="text">
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Respuesta</mat-label>
+        <input matInput formControlName="response" type="text">
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Fecha de Consulta</mat-label>
+        <input matInput [matDatepicker]="queryDatePicker" formControlName="queryDate">
+        <mat-datepicker-toggle matSuffix [for]="queryDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #queryDatePicker></mat-datepicker>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Fecha de Respuesta</mat-label>
+        <input matInput [matDatepicker]="responseDatePicker" formControlName="responseDate">
+        <mat-datepicker-toggle matSuffix [for]="responseDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #responseDatePicker></mat-datepicker>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="state" type="text">
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="clientId">
+            <mat-option *ngFor="let client of clients" [value]="client.id">
+                {{ client.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+        <mat-label>Profesional de Salud</mat-label>
+        <mat-select formControlName="healthProfessionalName">
+            <mat-option *ngFor="let healthProfessional of healthprofessionals" [value]="healthProfessional.id">
+                {{ healthProfessional.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-stroked-button routerLink="/preguntas">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="grabarPregunta()">Grabar</button>
+</form>
+</div>

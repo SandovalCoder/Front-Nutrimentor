@@ -1,0 +1,56 @@
+<app-cabecera></app-cabecera>
+<div class="salud">
+    <h2>Lista de Objetivos de Salud</h2>
+
+  
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" routerLink="/objetivosalud-add">Agregar nuevo Objetivo de Salud</button>
+  
+  <table mat-table [dataSource]="dsObjetivoSalud" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="goalType">
+        <th mat-header-cell *matHeaderCellDef> Tipo de Objetivo </th>
+        <td mat-cell *matCellDef="let element"> {{element.goalType}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="nutritionPlan">
+     <th mat-header-cell *matHeaderCellDef> Plan de Nutricion</th>
+     <td mat-cell *matCellDef="let element"> {{element.nutritionPlan}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="healthProfessionalName">
+        <th mat-header-cell *matHeaderCellDef> Profesional de Salud </th>
+        <td mat-cell *matCellDef="let element"> {{element.healthProfessionalName}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="onDelete(element.id)" style="cursor: pointer;" title="Eliminar">
+          <mat-icon color="warn">delete</mat-icon>
+        </a>
+        <a [routerLink]="['/objetivosalud-edit/', element.id]" style="cursor: pointer;" title="Editar">
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

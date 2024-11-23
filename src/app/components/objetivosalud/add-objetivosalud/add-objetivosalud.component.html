@@ -1,0 +1,45 @@
+<app-cabecera></app-cabecera>
+<div class="salud">
+    <h2 *ngIf="objetivosaludId == 0">Agregar Objetivo de Salud</h2>
+    <h2 *ngIf="objetivosaludId > 0">Editar Objetivo de Salud</h2>    
+ 
+  <br>
+  <form [formGroup]="addEditObjetivosalud">
+ 
+    <mat-form-field>
+        <mat-label>Tipo de objetivo</mat-label>
+        <input matInput formControlName="goalType" type="text">
+    </mat-form-field>
+
+    <br><br>
+    <mat-form-field>
+      <mat-label>Plan de Nutricion</mat-label>
+      <input matInput formControlName="nutritionPlan" type="text">
+    </mat-form-field>
+    
+    <br><br>  
+    <mat-form-field>
+      <mat-label>Cliente</mat-label>
+      <mat-select formControlName="clientId">
+        <mat-option *ngFor="let client of clients" [value]="client.id">
+          {{ client.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+      <mat-label>Profesional de Salud</mat-label>
+      <mat-select formControlName="healthProfessionalId">
+        <mat-option *ngFor="let healthProfessional of healthprofessionals" [value]="healthProfessional.id">
+          {{ healthProfessional.name }}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+  
+    <br><br>
+    
+    <button mat-stroked-button routerLink="/objetivosSalud">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="grabarObjetivoSalud()">Grabar</button>
+  </form>
+</div>

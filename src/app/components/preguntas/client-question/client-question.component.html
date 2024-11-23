@@ -1,0 +1,51 @@
+<app-cabecera></app-cabecera>
+
+<div *ngIf="isUserRole; else notAuthorized" class="professional-list-container">
+  <div class="professional-list">
+    <h2>Seleccione un Profesional de Salud</h2>
+    <div class="card-container">
+      <!-- Tarjetas de Profesionales -->
+      <mat-card *ngFor="let professional of healthProfessionals" class="professional-card">
+        <div class="card-content">
+          <mat-card-header>
+            <mat-icon class="card-icon">person</mat-icon>
+          </mat-card-header>
+          <mat-card-title>{{ professional.name }}</mat-card-title>
+          <mat-card-content>
+            <p><strong>Especialización:</strong> {{ professional.specializationName }}</p>
+            <p><strong>Correo:</strong> {{ professional.email }}</p>
+            <p><strong>Dirección:</strong> {{ professional.address }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="selectProfessional(professional)">
+              Seleccionar
+            </button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="selectedProfessional" class="register-consult">
+    <h2>Registrar Consulta</h2>
+    <p>Ha seleccionado al profesional: <strong>{{ selectedProfessional.name }}</strong></p>
+    <form [formGroup]="questionForm" (ngSubmit)="registerQuestion()">
+      <mat-form-field>
+        <mat-label>Consulta</mat-label>
+        <textarea matInput formControlName="query" placeholder="Escriba su pregunta"></textarea>
+      </mat-form-field>
+      <br />
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit">Enviar Consulta</button>
+        <button mat-raised-button color="warn" type="button" (click)="resetSelection()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #notAuthorized>
+  <div class="not-authorized">
+    <p>No está autorizado para realizar esta acción.</p>
+    <button mat-raised-button color="primary" routerLink="/home">Volver al Inicio</button>
+  </div>
+</ng-template>
