@@ -1,0 +1,151 @@
+/* Contenedor principal */
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  background-color: #269506;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.app-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* Título */
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Espaciador */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Botones principales */
+.menu-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-buttons button {
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #d4f6cc;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block; /* Siempre visible */
+}
+
+/* Menú desplegable general */
+mat-menu {
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+  min-width: 200px; /* Ajusta el ancho mínimo del menú */
+  padding: 0; /* Elimina márgenes internos */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Elementos del menú */
+mat-menu-item {
+  padding: 8px 12px; /* Reduce el tamaño del área interactiva */
+  font-size: 0.9rem; /* Tamaño de texto reducido */
+}
+
+mat-menu-item:hover {
+  background-color: #e6f4e6;
+}
+
+mat-menu-item mat-icon {
+  font-size: 1.2rem; /* Tamaño del ícono reducido */
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+mat-menu-item span {
+  font-size: 0.85rem; /* Texto más pequeño */
+  color: #333; /* Asegura que el texto sea visible */
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 600px) {
+  .menu-buttons {
+    display: none; /* Oculta los botones principales en pantallas pequeñas */
+  }
+
+  mat-menu {
+    font-size: 0.8rem; /* Fuente más pequeña para dispositivos móviles */
+    min-width: 180px; /* Menú más estrecho */
+  }
+
+  mat-menu-item {
+    padding: 6px 10px; /* Reduce aún más el tamaño del área interactiva */
+  }
+
+  mat-menu-item mat-icon {
+    font-size: 1rem; /* Íconos más pequeños */
+  }
+
+  mat-menu-item span {
+    font-size: 0.75rem; /* Texto más pequeño */
+  }
+}
+
+/* Para pantallas medianas y grandes */
+@media (min-width: 601px) {
+  .menu-buttons {
+    display: flex; /* Muestra los botones principales en pantallas medianas y grandes */
+  }
+
+  .menu-toggle {
+    display: block; /* Botón hamburguesa sigue visible */
+  }
+
+  mat-menu {
+    font-size: 0.9rem; /* Fuente estándar */
+    min-width: 200px; /* Menú estándar */
+  }
+
+  mat-menu-item {
+    padding: 8px 12px;
+  }
+
+  mat-menu-item mat-icon {
+    font-size: 1.2rem;
+  }
+
+  mat-menu-item span {
+    font-size: 0.85rem;
+  }
+}
+
+/* Ajustes generales para íconos */
+mat-menu-item mat-icon {
+  vertical-align: middle; /* Alineación vertical */
+  color: #269506; /* Verde para los íconos */
+}

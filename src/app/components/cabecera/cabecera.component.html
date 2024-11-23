@@ -1,0 +1,110 @@
+<mat-toolbar color="primary" class="menu-container">
+  <!-- Logo y título de la aplicación -->
+  <img src="Nutri.jpg" alt="Logo" class="app-logo">
+  <span class="app-title">Nutrimentor</span>
+
+  <span class="spacer"></span>
+
+  <!-- Botones principales -->
+  <div class="menu-buttons">
+    <button mat-button routerLink="/home" aria-label="Home">Home</button>
+    <button mat-button routerLink="/servicios" aria-label="Servicios">Servicios</button>
+    <button mat-button routerLink="/questioncliente" aria-label="Nosotros">Consulta</button>
+    <button mat-button routerLink="/productos" aria-label="Productos">Productos</button>
+    <button mat-button routerLink="/objetivosSalud" aria-label="Compra">Objetivos</button>
+    <button mat-button routerLink="/login" aria-label="login">Iniciar Sesión</button>
+  </div>
+
+  <!-- Botón de menú tipo hamburguesa -->
+  <button mat-icon-button [matMenuTriggerFor]="Menu" class="menu-toggle">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Menú desplegable -->
+  <mat-menu #Menu="matMenu">
+    <button mat-menu-item routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item routerLink="/login">
+      <mat-icon>account_circle</mat-icon>
+      <span>Iniciar Sesión</span>
+    </button>
+
+    <!--grupo de personas iconos-->
+
+    <button *ngIf="isAdmin" mat-menu-item routerLink="/clientes">
+      <mat-icon>people</mat-icon>
+      <span>Clientes</span>
+    </button>
+    <button *ngIf=" isUser" mat-menu-item routerLink="/perfil">
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+
+    <button *ngIf="isHealthProfessional" mat-menu-item routerLink="/perfilprofesional">
+      <mat-icon>people</mat-icon>
+      <span>Perfilprofesional</span>
+    </button>
+    
+    <!--preguntas para profesional-->
+    <button *ngIf=" isUser" mat-menu-item routerLink="/client-question">
+      <mat-icon>question_answer</mat-icon>
+      <span>Preguntas</span>
+    </button>
+
+    <button *ngIf="isAdmin" mat-menu-item routerLink="/productos">
+      <mat-icon>inventory</mat-icon>
+      <span>Producto</span>
+    </button>
+    <button *ngIf="isAdmin" mat-menu-item routerLink="/categorias">
+      <mat-icon>category</mat-icon>
+      <span>Categoria</span>
+    </button>
+    <button *ngIf="isUser || isAdmin" mat-menu-item routerLink="/compras">
+      <mat-icon>add_shopping_cart</mat-icon>
+      <span>Compra</span>
+    </button>
+    <button *ngIf="isUser || isAdmin" mat-menu-item routerLink="/detalleCompra">
+      <mat-icon>receipt_long</mat-icon>
+      <span>Detalle de Compra</span>
+    </button>
+    <button *ngIf="isAdmin" mat-menu-item routerLink="/especialidades">
+      <mat-icon>school</mat-icon>
+      <span>Especialidad</span>
+    </button>
+    <button *ngIf="isHealthProfessional || isAdmin" mat-menu-item routerLink="/profesionales">
+      <mat-icon>medical_services</mat-icon>
+      <span>Profesional de salud</span>
+    </button>
+    <button *ngIf="isAdmin" mat-menu-item routerLink="/resenas">
+      <mat-icon>rate_review</mat-icon>
+      <span>Reseña</span>
+    </button>
+    <button *ngIf="isHealthProfessional || isAdmin" mat-menu-item routerLink="/recomendaciones">
+      <mat-icon>thumb_up</mat-icon>
+      <span>Recomendaciones</span>
+    </button>
+
+    <button *ngIf=" isUser || isHealthProfessional || isAdmin" mat-menu-item routerLink="/seguimientos">
+      <mat-icon>track_changes</mat-icon>
+      <span>Seguimientos</span>
+    </button>
+    <button *ngIf="isUser || isAdmin" mat-menu-item routerLink="/objetivosSalud">
+      <mat-icon>health_and_safety</mat-icon>
+      <span>Objetivos de Salud</span>
+    </button>
+    <button *ngIf=" isAdmin" mat-menu-item routerLink="/preguntas">
+      <mat-icon>question_answer</mat-icon>
+      <span>Preguntas</span>
+    </button>
+    <button *ngIf="isHealthProfessional" mat-menu-item routerLink="/client-question">
+      <mat-icon>question_answer</mat-icon>
+      <span>Pregunta Pendientes</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
