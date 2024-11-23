@@ -1,0 +1,81 @@
+
+.reviews-container {
+  background: #3CA55C; 
+  background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C); 
+  background: linear-gradient(to right, #B5AC49, #3CA55C); 
+  padding: 40px 20px;
+  width: 100%; 
+  color: white; 
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Botón de volver atrás */
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+/* Título de la sección */
+.reviews-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
+}
+
+/* Botón para listar todas las reseñas */
+button[mat-raised-button], button[mat-icon-button] {
+  margin-bottom: 20px;
+  color: white;
+}
+
+button[mat-raised-button] {
+  background-color: #007bff;
+}
+
+/* Cuadrícula de reseñas */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Tarjetas de reseñas */
+.review-card {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: white; /* Fondo blanco para contraste */
+  color: black; /* Texto negro dentro de la tarjeta */
+  text-align: center;
+}
+
+/* Encabezado de reseñas */
+.review-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* Estilo de las estrellas */
+.stars mat-icon {
+  color: #FFD700;
+  font-size: 20px;
+  margin-right: 2px;
+}
+
+/* Botón eliminar */
+button[mat-icon-button][color="warn"] {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+}
+
+button[mat-icon-button][color="warn"]:hover {
+  opacity: 0.9;
+}

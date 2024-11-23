@@ -1,0 +1,54 @@
+<app-cabecera></app-cabecera>
+<div>
+  <h2 *ngIf="resenaId == 0">Agregar Reseña</h2>
+  <h2 *ngIf="resenaId > 0">Editar Reseña</h2>
+</div>
+<br />
+<form [formGroup]="addEditResena">
+  <mat-form-field>
+    <mat-label>Id</mat-label>
+    <input matInput formControlName="id" readonly="true" />
+  </mat-form-field>
+  <br /><br />
+
+  <mat-form-field>
+    <mat-label>Puntuación</mat-label>
+    <input matInput formControlName="score" type="number" />
+  </mat-form-field>
+
+  <br /><br />
+  <mat-form-field>
+    <mat-label>Comentario</mat-label>
+    <input matInput formControlName="comment" type="text" />
+  </mat-form-field>
+
+  <br /><br />
+  <mat-form-field *ngIf="!fromShopProducts">
+    <mat-label>Producto</mat-label>
+    <mat-select formControlName="productId">
+      <mat-option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br /><br />
+  <mat-form-field *ngIf="!fromShopProducts">
+    <mat-label>Cliente</mat-label>
+    <mat-select formControlName="clientId">
+      <mat-option *ngFor="let client of clients" [value]="client.id">
+        {{ client.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br /><br />
+
+  <button
+    mat-stroked-button
+    [routerLink]="fromShopProducts ? '/shop-products' : '/resenas'"
+  >
+    Cancelar
+  </button>
+  <button mat-raised-button color="primary" (click)="grabarResenas()">Grabar</button>
+</form>

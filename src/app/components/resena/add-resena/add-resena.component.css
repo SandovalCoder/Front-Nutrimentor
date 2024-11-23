@@ -1,0 +1,75 @@
+/* Contenedor del formulario con fondo degradado */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #3CA55C; /* Fallback */
+  background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C); /* Gradiente antiguo */
+  background: linear-gradient(to right, #B5AC49, #3CA55C); /* Gradiente principal */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: white; /* Texto blanco para mejor legibilidad */
+}
+
+/* Títulos */
+h2 {
+  text-align: center;
+  color: black; /* Texto blanco */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra más visible */
+}
+
+/* Espaciado entre campos */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Botones */
+button[mat-stroked-button],
+button[mat-raised-button] {
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+button[mat-stroked-button] {
+  border-color: #e53935; /* Rojo claro */
+  color: #e53935;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: #fce4ec; /* Fondo rosado claro */
+}
+
+button[mat-raised-button] {
+  background-color: #2e7d32; /* Verde */
+  color: white;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #1b5e20; /* Verde más oscuro */
+}
+
+/* Formulario responsivo */
+@media (max-width: 768px) {
+  form {
+      padding: 15px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  button {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}

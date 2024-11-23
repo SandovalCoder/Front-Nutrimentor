@@ -1,0 +1,43 @@
+<app-cabecera></app-cabecera>
+<div class="reviews-container">
+
+  <!-- Botón para volver atrás -->
+  <button mat-icon-button color="primary" (click)="goBack()" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <h2>Reseñas del Producto</h2>
+
+  <!-- Botón para listar todas las reseñas (visible solo para admins) -->
+  <button 
+    mat-raised-button 
+    color="primary" 
+    *ngIf="isAdmin" 
+    routerLink="/resenas">
+    Listar todas las reseñas
+  </button>
+
+  <div class="review-grid">
+    <mat-card *ngFor="let review of dsResenas" class="review-card">
+      <div class="review-header">
+        <h3>{{ review.clientName }}</h3>
+      </div>
+      <mat-card-content>
+        <p>{{ review.comment }}</p>
+        <div class="stars">
+          <mat-icon *ngFor="let star of getStars(review.score)">star</mat-icon>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- Botón Eliminar con un ícono -->
+        <button 
+          mat-icon-button 
+          color="warn" 
+          *ngIf="review.clientId === currentUserId" 
+          (click)="openConfirmDialog(review.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
