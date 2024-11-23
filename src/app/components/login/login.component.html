@@ -1,0 +1,62 @@
+<div class="container">
+  <img src="Na.jpg" alt="Imagen de fondo" class="hero-background" />
+  <div class="login-box">
+    <div class="login-left">
+      <h2 class="welcome-title">Bienvenido a Nutrimentor</h2>
+      <p class="welcome-text">
+        Descubre suplementos y planes nutricionales personalizados para una vida más saludable.
+      </p>
+      <img src="lo1.jpg" alt="Illustration" class="illustration" />
+    </div>
+
+    <div class="login-right">
+      <mat-card class="login-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">Iniciar Sesión</mat-card-title>
+          <mat-card-subtitle class="card-subtitle">
+            Hola, ingresa tus datos para iniciar sesión en tu cuenta
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="mensajeExito" class="alert alert-success">
+            {{ mensajeExito }}
+          </div>
+          <div *ngIf="hayError && mensajeError" class="alert alert-danger">
+            {{ mensajeError }}
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+            <mat-form-field appearance="outline" class="input-field">
+              <mat-icon matPrefix>person</mat-icon>
+              <input
+                matInput
+                placeholder="Enter your username"
+                formControlName="userName"
+              />
+              <mat-error *ngIf="loginForm.get('userName')?.hasError('required')">
+                El nombre de usuario es obligatorio
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-field">
+              <mat-icon matPrefix>lock</mat-icon>
+              <input
+                matInput
+                type="password"
+                placeholder="Enter your password"
+                formControlName="password"
+              />
+              <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                La contraseña es obligatoria
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button class="login-button" color="primary" type="submit">
+              Acceder
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

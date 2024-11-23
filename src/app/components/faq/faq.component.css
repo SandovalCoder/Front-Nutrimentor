@@ -1,0 +1,50 @@
+.faq-full-width {
+    background: #3CA55C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Gradiente WebKit */
+    background: linear-gradient(to right, #B5AC49, #3CA55C); /* Gradiente principal */
+    padding: 40px 0; 
+    width: 100%; 
+}
+
+.faq-section {
+    max-width: 800px; /* Ajuste del ancho máximo */
+    margin: auto;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2rem; /* Título principal */
+    font-weight: bold;
+    color: white; 
+    margin-bottom: 20px; /* Espaciado debajo del título */
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 10px; /* Menor espacio entre los botones */
+    padding: 10px 12px; /* Espaciado interno reducido */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 5px; /* Bordes redondeados ajustados */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animaciones suaves en hover */
+}
+
+.faq-item:hover {
+    transform: translateY(-2px); /* Movimiento ligero al pasar el cursor */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
+}
+
+.faq-item h3 {
+    font-size: 1rem; /* Tamaño de fuente reducido */
+    color: #333; /* Color oscuro para títulos */
+    margin-bottom: 5px; /* Espaciado reducido debajo del título */
+}
+
+.faq-item p {
+    font-size: 0.9rem; /* Fuente más pequeña para el texto */
+    color: #555; /* Color del texto */
+    line-height: 1.4; /* Espaciado entre líneas más compacto */
+    margin-top: 8px; /* Menor espacio superior */
+    text-align: center; /* Texto centrado */
+}
