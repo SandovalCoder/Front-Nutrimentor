@@ -1,0 +1,40 @@
+<app-cabecera></app-cabecera>
+<div class="cart-container">
+  <!-- Botón de regreso -->
+  <button mat-icon-button color="primary" (click)="goBack()" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <!-- Título del Carrito -->
+  <h2 class="cart-title">Carrito</h2>
+
+  <!-- Contenido del Carrito -->
+  <div class="cart-content" *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="cart-item-details">
+        <p class="product-name"><strong>{{ item.productName }}</strong></p>
+        <p class="product-quantity">Cantidad: {{ item.quantity }}</p>
+        <p class="product-total">Total: {{ item.total | currency }}</p>
+      </div>
+      <button mat-icon-button color="warn" class="delete-item" (click)="removeItem(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+    <!-- Línea divisoria -->
+    <hr class="divider" />
+
+    <!-- Total General -->
+    <div class="cart-summary">
+      <p><strong>Total General:</strong> {{ calculateTotal() | currency }}</p>
+    </div>
+
+    <!-- Botón para vaciar carrito -->
+    <button mat-raised-button color="warn" (click)="vaciarCarrito()">Vaciar Carrito</button>
+  </div>
+
+  <!-- Plantilla si el carrito está vacío -->
+  <ng-template #emptyCart>
+    <p class="empty-cart-message">No hay productos en el carrito.</p>
+  </ng-template>
+</div>

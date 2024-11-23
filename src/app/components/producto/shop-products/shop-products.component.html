@@ -1,0 +1,53 @@
+<app-cabecera></app-cabecera>
+
+<div class="container-full-width">
+  <div class="container">
+    <h2 class="title">Lista de Productos</h2>
+
+    <!-- Botón del carrito con contador -->
+    <div class="cart-container">
+      <button mat-icon-button color="primary" (click)="navigateToCart()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span class="cart-counter" *ngIf="totalProducts > 0">{{ totalProducts }}</span>
+      </button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filters">
+      <!-- Combobox para Categorías -->
+      <mat-form-field appearance="outline" class="category-filter">
+        <mat-label>Seleccionar Categoría</mat-label>
+        <mat-select (selectionChange)="onCategoryChange($event.value)">
+          <mat-option [value]="null">Todas las Categorías</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Filtro de texto -->
+      <mat-form-field appearance="outline" class="text-filter">
+        <mat-label>Buscar Producto</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro">
+      </mat-form-field>
+    </div>
+
+    <!-- Tarjetas de productos -->
+    <div class="products-grid">
+      <mat-card *ngFor="let product of filteredProducts" class="product-card">
+        <div class="card-image-container">
+          <img mat-card-image [src]="product.logo" alt="{{ product.name }}">
+        </div>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>Categoría: {{ product.categoryName }}</mat-card-subtitle>
+        <mat-card-content>
+          <p><strong>Precio:</strong> {{ product.price | currency }}</p>
+          <p><strong>Stock:</strong> {{ product.stock }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onBuy(product)">Comprar</button>
+          <button mat-raised-button color="accent" [routerLink]="['/resenaprodu', product.id]">Reseñas</button>
+          <button mat-raised-button color="warn" (click)="onAddReview(product)">Agregar Reseña</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

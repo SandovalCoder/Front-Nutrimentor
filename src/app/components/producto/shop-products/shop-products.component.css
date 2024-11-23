@@ -1,0 +1,139 @@
+/* Fondo completo */
+.container-full-width {
+  background: linear-gradient(to right, #3CA55C, #B5AC49);
+  padding: 40px 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Contenedor central */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Título */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor del carrito */
+.cart-container {
+  position: absolute; /* Permite posicionarlo relativo al contenedor */
+  top: 180px; /* Baja el carrito para alinearlo con la lista */
+  right: 20px; /* Mantiene el carrito en el lado derecho */
+  z-index: 1000; /* Asegura que esté visible sobre otros elementos */
+  background-color: white; /* Fondo blanco */
+  border-radius: 50%; /* Hace el botón redondo */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  padding: 10px;
+}
+
+.cart-container button {
+  background-color: transparent; /* Fondo del botón transparente */
+  border: none;
+}
+
+.cart-counter {
+  background-color: red; /* Fondo rojo para el contador */
+  color: white; /* Texto blanco */
+  border-radius: 50%; /* Forma redonda */
+  padding: 2px 8px; /* Espaciado interno */
+  font-size: 0.8rem; /* Tamaño de fuente */
+  position: absolute; /* Posición relativa al botón */
+  top: -5px; /* Ajusta verticalmente */
+  right: -5px; /* Ajusta horizontalmente */
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.category-filter, .text-filter {
+  width: 40%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-form-field input {
+  padding: 10px;
+}
+
+/* Tarjetas de productos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Textos en las tarjetas */
+.product-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3CA55C;
+}
+
+.product-card mat-card-subtitle {
+  font-size: 1rem;
+  color: gray;
+}
+
+.product-card mat-card-content p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* Botones de tarjetas */
+mat-card-actions button {
+  margin: 5px;
+  font-weight: bold;
+}
+
+mat-card-actions button[color="primary"] {
+  background-color: #3CA55C;
+  color: white;
+}
+
+mat-card-actions button[color="accent"] {
+  background-color: #FF9800;
+  color: white;
+}
+
+mat-card-actions button[color="warn"] {
+  background-color: #F44336;
+  color: white;
+}

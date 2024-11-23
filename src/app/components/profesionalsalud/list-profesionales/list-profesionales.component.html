@@ -1,0 +1,55 @@
+<app-cabecera></app-cabecera>
+<div class="profesional">
+    <h2>Lista de Profesionales de salud</h2>
+  
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" routerLink="/profesional-add">Agregar nuevo Profesional</button>
+  
+  <table mat-table [dataSource]="dsProfesionales" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Correo electronico </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Direcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="specializationName">
+      <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+      <td mat-cell *matCellDef="let element"> {{ element.specializationName }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="onDelete(element.id)" style="cursor: pointer;" title="Eliminar">
+          <mat-icon color="warn">delete</mat-icon>
+        </a>
+        <a [routerLink]="['/profesional-edit/', element.id]" style="cursor: pointer;" title="Editar">
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,14 @@
+.recomendaciones-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .recomendaciones-list,
+  .recomendaciones-form {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
