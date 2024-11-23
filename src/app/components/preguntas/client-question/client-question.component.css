@@ -1,0 +1,125 @@
+/* Contenedor principal */
+.professional-list-container {
+  background: linear-gradient(to right, #3CA55C, #B5AC49);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Título Principal */
+.professional-list h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Tarjetas de Profesionales */
+.professional-card {
+  background-color: white;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.professional-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  padding: 15px;
+}
+
+/* Icono en la tarjeta */
+.card-icon {
+  font-size: 4rem;
+  color: #3CA55C;
+  background-color: #e8f5e9;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Textos en las tarjetas */
+.professional-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3CA55C;
+  margin: 10px 0;
+}
+
+.professional-card mat-card-content p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Botones */
+button[mat-raised-button] {
+  margin-top: 10px;
+  background-color: #3CA55C;
+  color: white;
+  font-weight: bold;
+}
+
+button[mat-raised-button]:hover {
+  background-color: green;
+}
+
+/* Grupo de botones */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Contenedor de consulta */
+.register-consult {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.register-consult h2 {
+  font-size: 1.8rem;
+  color: #3CA55C;
+  margin-bottom: 20px;
+}
+
+.register-consult p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Campo de texto */
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+/* No autorizado */
+.not-authorized {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}

@@ -1,0 +1,71 @@
+<app-cabecera></app-cabecera>
+<div class="preguntas">
+    <h2>Lista de preguntas</h2>
+
+  
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" routerLink="/pregunta-add">Agregar nuevo  preguntas </button>
+  
+  <table mat-table [dataSource]="dsPreguntas" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="query">
+        <th mat-header-cell *matHeaderCellDef> Consulta </th>
+        <td mat-cell *matCellDef="let element"> {{element.query}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="response">
+     <th mat-header-cell *matHeaderCellDef> Respuesta </th>
+     <td mat-cell *matCellDef="let element"> {{element.response}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="queryDate">
+        <th mat-header-cell *matHeaderCellDef> Fecha de consulta</th>
+        <td mat-cell *matCellDef="let element"> {{element.queryDate | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="responseDate">
+        <th mat-header-cell *matHeaderCellDef> Fecha de respuesta</th>
+        <td mat-cell *matCellDef="let element"> {{element.responseDate | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+   </ng-container>
+
+    <ng-container matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="healthProfessionalName">
+        <th mat-header-cell *matHeaderCellDef> Profesional de salud </th>
+        <td mat-cell *matCellDef="let element"> {{element.healthProfessionalName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="onDelete(element.id)" style="cursor: pointer;" title="Eliminar">
+          <mat-icon color="warn">delete</mat-icon>
+        </a>
+        <a [routerLink]="['/pregunta-edit/', element.id]" style="cursor: pointer;" title="Editar">
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>
