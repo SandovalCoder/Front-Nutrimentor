@@ -1,0 +1,68 @@
+.servicios-full-width {
+    background-color: #f9f9f9; /* Fondo gris muy claro */
+    padding: 40px 20px; /* Espaciado general */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.servicios-section {
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.servicios-section h2 {
+    font-size: 2.5rem; /* Título más grande */
+    font-weight: bold;
+    color: #2E7D32; /* Verde oscuro */
+    margin-bottom: 30px; /* Espaciado debajo del título */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.servicios-content {
+    display: flex;
+    gap: 25px; /* Espaciado entre tarjetas */
+    flex-wrap: wrap; /* Ajuste para pantallas pequeñas */
+    justify-content: center;
+}
+
+.servicio {
+    flex: 1 1 280px; /* Tamaño flexible */
+    max-width: 300px; /* Ancho máximo */
+    background: #52c234; /* Fallback para navegadores antiguos */
+    background: -webkit-linear-gradient(to bottom right, #061700, #52c234); /* Gradiente diagonal */
+    background: linear-gradient(to bottom right, #061700, #52c234); /* Gradiente principal */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones */
+    margin-bottom: 20px; /* Espaciado hacia abajo */
+}
+
+.servicio:hover {
+    transform: translateY(-10px); /* Elevación en hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.servicio img {
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: auto; /* Mantiene proporción */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espaciado debajo de la imagen */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); /* Sombra para la imagen */
+}
+
+.servicio h3 {
+    font-size: 1.6rem; /* Título ligeramente más grande */
+    color: black; /* Texto blanco */
+    margin-bottom: 12px; /* Espaciado ajustado */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); /* Sombra en el texto */
+}
+
+.servicio p {
+    font-size: 1rem; /* Texto más claro */
+    line-height: 1.6; /* Mayor espacio entre líneas */
+    color: #f5f5f5; /* Blanco más suave */
+    text-align: center; /* Texto justificado */
+    margin: 0; /* Sin márgenes adicionales */
+}

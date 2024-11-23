@@ -1,0 +1,52 @@
+<app-cabecera></app-cabecera>
+<div class="seguimiento">
+  <h2 *ngIf="seguimientoId === 0">Agregar Nuevo Seguimiento</h2>
+  <h2 *ngIf="seguimientoId > 0">Editar Seguimiento</h2>
+  <br>
+
+  <form [formGroup]="addEditSeguimiento">
+ 
+    <mat-form-field>
+      <mat-label>Fecha de Inicio</mat-label>
+      <input matInput [matDatepicker]="startPicker" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha de Fin</mat-label>
+      <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Peso</mat-label>
+      <input matInput formControlName="weight" type="text" placeholder="Ingrese el Peso">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Altura</mat-label>
+      <input matInput formControlName="height" type="text" placeholder="Ingrese la Altura">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="status" placeholder="Ingrese Estado">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Objetivo de salud</mat-label>
+      <mat-select formControlName="healthGoalId">
+        <mat-option *ngFor="let healthGoal of healthGoals" [value]="healthGoal.id">
+          {{ healthGoal.goalType }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-stroked-button routerLink="/seguimientos">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="grabarSeguimiento()">Guardar</button>
+    </div>
+  </form>
+</div>
