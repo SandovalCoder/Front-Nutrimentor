@@ -1,0 +1,47 @@
+<app-cabecera></app-cabecera>
+<div class="profesional">
+    <h2 *ngIf="profesionalsaludId === 0">Agregar Nuevo Profesional de salud</h2>
+    <h2 *ngIf="profesionalsaludId > 0">Editar Profesional de salud</h2>
+
+  <br>
+  
+  <form [formGroup]="addEditProfesionalsaludI">
+    
+   
+  
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" type="text" placeholder="Ingrese el Nombre">
+    </mat-form-field>
+    <br><br>
+  
+   
+    <mat-form-field>
+      <mat-label>email</mat-label>
+      <input matInput formControlName="email" type="text" placeholder="Ingrese el Correo">
+    </mat-form-field>
+    <br><br>
+  
+   
+    <mat-form-field>
+      <mat-label>Direccion</mat-label>
+      <input matInput formControlName="address" placeholder="Ingrese el Direccion">
+    </mat-form-field>
+    <br><br>
+  
+    
+    <mat-form-field>
+      <mat-label>Especialidad</mat-label>
+      <mat-select formControlName="specializationId">
+        <mat-option *ngFor="let specialization of specializations" [value]="specialization.id">{{ specialization.specializationName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+  
+    
+    <div class="button-group">
+      <button mat-stroked-button routerLink="/profesionales">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="grabarProfesionalsalud()">Guardar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<app-cabecera></app-cabecera>
+<div class="recomendacion">
+    <h2 *ngIf="recomendacionId === 0">Agregar Recomendacion</h2>
+    <h2 *ngIf="recomendacionId > 0">Editar Recomendacion</h2>
+  <br>
+  <form [formGroup]="addEditRecomendacion">
+    <mat-form-field>
+      <mat-label>Descripcion</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <br><br>
+  
+    <mat-form-field>
+      <mat-label>Objetivo de Salud</mat-label>
+      <mat-select formControlName="healthGoalId">
+        <mat-option *ngFor="let healthGoal of healthGoals" [value]="healthGoal.id">
+          {{ healthGoal.goalType }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-stroked-button routerLink="/recomendaciones">Cancelar</button>
+    <button mat-raised-button (click)="grabarRecomendacion()">Grabar</button>
+  </form>
+</div>
