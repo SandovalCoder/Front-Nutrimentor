@@ -1,0 +1,36 @@
+<app-cabecera></app-cabecera>
+<div class="detalle">
+  <h2>Agregar Detalle Compra</h2>
+<br>
+<form [formGroup]="addEditDetallecompra">
+<br><br>
+  <mat-form-field>
+    <mat-label>Nombre del Producto</mat-label>
+    <input matInput [value]="selectedProduct?.name || ''" readonly="true">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <mat-label>Precio</mat-label>
+    <input matInput [value]="selectedProduct?.price || 0" readonly="true">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <mat-label>Cantidad</mat-label>
+    <input matInput formControlName="quantity" type="number">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <mat-label>Total</mat-label>
+    <input matInput formControlName="total" readonly="true">
+  </mat-form-field>
+  <br><br>
+
+  <div class="button-group">
+    <button mat-stroked-button routerLink="/shop-products">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="grabarDetalleCompra()">Guardar</button>
+  </div>
+</form>
+</div>

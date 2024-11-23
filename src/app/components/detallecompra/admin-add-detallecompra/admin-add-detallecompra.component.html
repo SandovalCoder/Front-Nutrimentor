@@ -1,0 +1,51 @@
+<app-cabecera></app-cabecera>
+<div class="detalle-compra-wrapper">
+  <div class="detalle-compra">
+    <h2 *ngIf="detalleCompraId === 0">Agregar Detalle de Compra</h2>
+    <h2 *ngIf="detalleCompraId > 0">Editar Detalle de Compra</h2>
+
+    <form [formGroup]="addEditDetalleCompra">
+      <!-- Producto -->
+      <mat-form-field>
+        <mat-label>Producto</mat-label>
+        <mat-select formControlName="productId">
+          <mat-option *ngFor="let product of products" [value]="product.id">
+            {{ product.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br /><br />
+
+      <!-- Cantidad -->
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input matInput formControlName="quantity" type="number" placeholder="Ingrese la cantidad" />
+      </mat-form-field>
+      <br /><br />
+
+      <!-- Total -->
+      <mat-form-field>
+        <mat-label>Total</mat-label>
+        <input matInput formControlName="total" readonly />
+      </mat-form-field>
+      <br /><br />
+
+      <!-- Compra (Fechas) -->
+      <mat-form-field>
+        <mat-label>Fecha de Compra</mat-label>
+        <mat-select formControlName="buysId">
+          <mat-option *ngFor="let buy of buys" [value]="buy.id">
+            {{ buy.orderDate| date: 'shortDate' }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br /><br />
+
+      <!-- Botones -->
+      <div class="button-group">
+        <button mat-stroked-button routerLink="/detalleCompra">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="grabarDetalleCompra()">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

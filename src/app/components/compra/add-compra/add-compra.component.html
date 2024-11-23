@@ -1,0 +1,40 @@
+<app-cabecera></app-cabecera>
+<div class="compra">
+  <h2 *ngIf="compraId === 0">Agregar Compra</h2>
+  <h2 *ngIf="compraId > 0">Editar Compra</h2>
+
+<br>
+
+<form [formGroup]="addEditCompra">
+  <!-- Campo de ID (Solo Lectura) -->
+  <mat-form-field>
+    <mat-label>Id</mat-label>
+    <input matInput formControlName="id" readonly="true">
+  </mat-form-field>
+  <br><br>
+
+  <!-- Campo de Fecha de Pedido -->
+  <mat-form-field>
+    <mat-label>Fecha de Pedido</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="orderDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br><br>
+
+  <!-- Campo Cliente -->
+  <mat-form-field>
+    <mat-label>Cliente</mat-label>
+    <mat-select formControlName="clientId">
+      <mat-option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br><br>
+
+  <!-- Botones de Guardar y Cancelar -->
+  <div class="button-group">
+    <button mat-stroked-button routerLink="/compras">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="grabarCompra()">Guardar</button>
+  </div>
+</form>
+</div>
